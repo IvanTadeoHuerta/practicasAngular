@@ -1,3 +1,70 @@
-<h1>
-  {{title}}
-</h1>
+<div>
+  <h1>Ejemplo de String interpolation {{ cadena }}</h1>
+  <hr>
+  <h2>Ejemplo de Binding con un button</h2>
+  <button [disabled]="habilitar">click me</button>
+
+  <hr>
+  <h3>Ejemplo de event Binding. Clic para ver</h3>
+  <button (click)="eventoClic()">click me</button>
+
+  <hr>
+  <h4>Ejemplo two way data binding</h4>
+  <input [(ngModel)]="texto"/>
+  <label> muestro lo que escribes {{ texto }}</label>
+
+  <hr>
+  <h1>Directivas en Angular 4 y ngFor</h1>
+  <ul>
+    <li *ngFor="let lugar of lugares">{{ lugar.name}}</li>
+  </ul>
+
+  <hr>
+  <h1>Directivas en Angular 4 y ngif</h1>
+  <ul>
+    <ng-container *ngFor="let persona of personas">
+      <li *ngIf="persona.edad > 18" >{{ persona.nombre}}</li>
+    </ng-container >   
+  </ul>
+
+  <hr>
+  <h1>Mi hubicacion</h1>
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+
+  <hr>
+  <h1>Directivas ngStyle y ngClass</h1>
+  <ul>
+    <ng-container *ngFor="let persona of personas">
+      <li [ngStyle]="{color: (persona.edad > 18)? 'green' : 'red'}">{{ persona.nombre}}</li>
+    </ng-container >   
+  </ul>
+
+  <hr>
+  <h1>Directivas ngSwitch</h1>
+  <ul>
+    <ng-container *ngFor="let lc of lugaresCercania" [ngSwitch]="lc.distancia">
+      <li [resaltar]="lc.plan">{{ lc.name }}</li>
+      <span *ngSwitchCase="1"  [ngStyle]="{color: 'red'}">Cercano</span>
+      <span *ngSwitchCase="2"  [ngStyle]="{color: 'orange'}">Medio cerca</span>
+      <span *ngSwitchCase="3"  [ngStyle]="{color: 'green'}">Lejano</span>
+    </ng-container >   
+  </ul>
+
+  <hr>
+  <h1>Mi directiva</h1>
+  <ul>
+    <ng-container *ngFor="let n of negocios">
+      <li [resaltar]="n.plan">{{ n.name }}</li>
+    </ng-container >   
+  </ul>
+
+  <hr>
+  <h1>Mi directiva con HostListener</h1>
+  <ul>
+    <ng-container *ngFor="let n of negocios">
+      <a><li [resaltar]="n.plan" contar-clicks>{{ n.name }}</li></a>
+    </ng-container >   
+  </ul>
+</div>
