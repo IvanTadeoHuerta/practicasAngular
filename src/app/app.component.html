@@ -1,4 +1,18 @@
-<div>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+  </ul>
+
   <h1>Ejemplo de String interpolation {{ cadena }}</h1>
   <hr>
   <h2>Ejemplo de Binding con un button</h2>
@@ -54,17 +68,16 @@
 
   <hr>
   <h1>Mi directiva</h1>
-  <ul>
+  <ul class="list-group">
     <ng-container *ngFor="let n of negocios">
-      <li [resaltar]="n.plan">{{ n.name }}</li>
+      <li [resaltar]="n.plan" class="list-group-item">{{ n.name }}</li>
     </ng-container >   
   </ul>
 
   <hr>
   <h1>Mi directiva con HostListener</h1>
-  <ul>
+  <ul class="list-group">
     <ng-container *ngFor="let n of negocios">
-      <a><li [resaltar]="n.plan" contar-clicks>{{ n.name }}</li></a>
+      <li class="list-group-item" [resaltar]="n.plan" contar-clicks>{{ n.name }}</li>
     </ng-container >   
   </ul>
-</div>
