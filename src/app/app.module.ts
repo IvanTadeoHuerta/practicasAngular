@@ -8,22 +8,32 @@ import { AgmCoreModule } from '@agm/core';
 import { ResaltarDirective} from './directives/resaltar.directive';
 import {ContarClicksDirective} from './directives/contar-clicks.directive';
 import { Routes,RouterModule } from '@angular/router';
+import { DetalleComponent } from './components/detalle/detalle.component';
+import { PracticasComponent } from './components/practicas/practicas.component';
+import { MapaComponent } from './components/mapa/mapa.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const appRoutes: Routes = [
-  {path: '', component: AppComponent},
-  {path:'lugares', component: AppComponent}
+  {path:'practicas', component: PracticasComponent},
+  {path:'mapa', component: MapaComponent},
+  {path:'detalle', component: DetalleComponent},
+  {path:'**', pathMatch:'full', redirectTo: 'practicas'}
 ]
 @NgModule({
   declarations: [
     AppComponent,
     ResaltarDirective,
-    ContarClicksDirective
+    ContarClicksDirective,
+    DetalleComponent,
+    PracticasComponent,
+    MapaComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {useHash: true}),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBUcY2wKFpZO9J_t9UCrnL_f1kmDeNtosY'
     })
