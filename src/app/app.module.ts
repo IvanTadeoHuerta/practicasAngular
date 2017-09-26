@@ -12,12 +12,14 @@ import { DetalleComponent } from './components/detalle/detalle.component';
 import { PracticasComponent } from './components/practicas/practicas.component';
 import { MapaComponent } from './components/mapa/mapa.component';
 import { HeaderComponent } from './components/header/header.component';
+import { EspecificoComponent } from './components/especifico/especifico.component';
 
 const appRoutes: Routes = [
   {path:'practicas', component: PracticasComponent},
   {path:'mapa', component: MapaComponent},
   {path:'detalle', component: DetalleComponent},
-  {path:'**', pathMatch:'full', redirectTo: 'practicas'}
+  {path:'especifico/:id', component: EspecificoComponent}
+  //{path:'**', pathMatch:'full', redirectTo: 'practicas'}
 ]
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
     DetalleComponent,
     PracticasComponent,
     MapaComponent,
-    HeaderComponent
+    HeaderComponent,
+    EspecificoComponent
   ],
   imports: [
     BrowserModule,
