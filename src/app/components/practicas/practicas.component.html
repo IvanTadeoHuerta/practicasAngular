@@ -31,6 +31,6 @@
 <h1>Directivas ngStyle y ngClass</h1>
 <ul>
   <ng-container *ngFor="let persona of personas">
-    <li [ngStyle]="{color: (persona.edad > 18)? 'green' : 'red'}"><a routerLink="/especifico/{{persona.id}}">{{ persona.nombre}}</a></li>
+    <li [ngStyle]="{color: (persona.edad > 18)? 'green' : 'red'}"><a routerLink="/especifico/{{persona.id}}"  [queryParams]="{action: 'view' , referer:'google'}">{{ persona.nombre}}</a></li>
   </ng-container >   
 </ul>

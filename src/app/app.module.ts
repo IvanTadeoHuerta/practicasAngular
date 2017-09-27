@@ -13,12 +13,14 @@ import { PracticasComponent } from './components/practicas/practicas.component';
 import { MapaComponent } from './components/mapa/mapa.component';
 import { HeaderComponent } from './components/header/header.component';
 import { EspecificoComponent } from './components/especifico/especifico.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
 
 const appRoutes: Routes = [
   {path:'practicas', component: PracticasComponent},
   {path:'mapa', component: MapaComponent},
   {path:'detalle', component: DetalleComponent},
-  {path:'especifico/:id', component: EspecificoComponent}
+  {path:'especifico/:id', component: EspecificoComponent},
+  {path:'contacto', component: ContactoComponent}
   //{path:'**', pathMatch:'full', redirectTo: 'practicas'}
 ]
 @NgModule({
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
     PracticasComponent,
     MapaComponent,
     HeaderComponent,
-    EspecificoComponent
+    EspecificoComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
