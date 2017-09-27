@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { LugaresService}  from '../../services/lugares.service'
 @Component({
   selector: 'app-practicas',
   templateUrl: './practicas.component.html',
@@ -11,11 +11,7 @@ export class PracticasComponent {
   texto:string
 
 
-  lugares:any = [
-    {name: 'Ocoyoacac'},
-    {name: 'Lerma'},
-    {name: 'Toluca'}
-  ]
+  lugares:any = null;
 
  
 
@@ -35,6 +31,8 @@ export class PracticasComponent {
   eventoClic(){
     alert('hola evento clic')
   }
-  constructor() { }
-
+  constructor(private _isLugares:LugaresService) {
+     this.lugares = this._isLugares.getLugares();
+   }
+     
 }

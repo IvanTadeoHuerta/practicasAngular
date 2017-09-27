@@ -14,6 +14,7 @@ import { MapaComponent } from './components/mapa/mapa.component';
 import { HeaderComponent } from './components/header/header.component';
 import { EspecificoComponent } from './components/especifico/especifico.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { LugaresService } from './services/lugares.service';
 
 const appRoutes: Routes = [
   {path:'practicas', component: PracticasComponent},
@@ -44,7 +45,7 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyBUcY2wKFpZO9J_t9UCrnL_f1kmDeNtosY'
     })
   ],
-  providers: [],
+  providers: [LugaresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
