@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from "angularfire2/database";
+import { Http } from "@angular/http";
 
 @Injectable()
 export class LugaresService {
@@ -12,7 +13,7 @@ export class LugaresService {
     { id: 6, plan: 'gratuito', name:"ocoyoacac5", cercania: 3, distancia: 120, active: false, nombre: 'Zapatería el Clavo' }
   ];
 
-  constructor(private afDB:AngularFireDatabase){}
+  constructor(private afDB:AngularFireDatabase, private http:Http){}
 
   public getLugares() {
     return this.lugares;
@@ -27,6 +28,12 @@ export class LugaresService {
 
   public getLugaresEnFireBase(){
     return this.afDB.list('lugares/');
+  }
+
+  public obtenrGeoData(direccion){
+    
+    //http://maps.google.com/maps/api/geocode/xml?address=78-43+diagonal+70f,+Bogota,Colombia
+    return this.http.get('http://maps.google.com/maps/api/geocode/json?address='+direccion);
   }
 
 }
