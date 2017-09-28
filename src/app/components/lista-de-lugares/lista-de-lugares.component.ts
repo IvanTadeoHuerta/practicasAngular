@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LugaresService } from "app/services/lugares.service";
 
 @Component({
   selector: 'app-lista-de-lugares',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class ListaDeLugaresComponent implements OnInit {
-
-  constructor() { }
+  lugares:any = null;
+  constructor(private _isLugares:LugaresService) { 
+    _isLugares.getLugaresEnFireBase().subscribe(lugares=>{
+      this.lugares = lugares;
+    })
+  }
 
   ngOnInit() {
   }

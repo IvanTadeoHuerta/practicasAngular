@@ -25,4 +25,8 @@ export class LugaresService {
     this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
   }
 
+  public getLugaresEnFireBase(){
+    return this.afDB.list('lugares/');
+  }
+
 }

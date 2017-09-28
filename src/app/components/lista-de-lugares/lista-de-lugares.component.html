@@ -4,13 +4,23 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>Identificador</th>
+        <th>Nombre</th>
+        <th>Plan</th>
+        <th>Descripcion</th>
+        <th>Eliminar</th>
       </tr>
     </thead>
     <tbody>
-
+        
+        <tr *ngFor="let lugar of lugares">
+          <td>{{ lugar.id}}</td>
+          <td>{{ lugar.nombre}}</td>
+          <td>{{ lugar.plan}}</td>
+          <td>{{ lugar.descripcion}}</td>
+          <td><button class="btn btn-danger">ELIMINAR</button></td>
+        </tr>
+        
     </tbody>
   </table>
 </div>
