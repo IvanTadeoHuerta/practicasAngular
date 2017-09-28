@@ -37,7 +37,7 @@ const appRoutes: Routes = [
   {path:'detalle', component: DetalleComponent},
   {path:'especifico/:id', component: EspecificoComponent},
   {path:'contacto', component: ContactoComponent},
-  {path:'crear', component: CrearComponent},
+  {path:'crear/:id', component: CrearComponent},
   {path:'list', component: ListaDeLugaresComponent}
   //{path:'**', pathMatch:'full', redirectTo: 'practicas'}
 ]
