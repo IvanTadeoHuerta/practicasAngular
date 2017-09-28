@@ -19,6 +19,7 @@ import { LugaresService } from './services/lugares.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { CrearComponent } from './components/crear/crear.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCDjpZcx-TYR56Qy_VSf1efdRghdra5KQM",
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
   {path:'mapa', component: MapaComponent},
   {path:'detalle', component: DetalleComponent},
   {path:'especifico/:id', component: EspecificoComponent},
-  {path:'contacto', component: ContactoComponent}
+  {path:'contacto', component: ContactoComponent},
+  {path:'crear', component: CrearComponent}
   //{path:'**', pathMatch:'full', redirectTo: 'practicas'}
 ]
 @NgModule({
@@ -47,7 +49,8 @@ const appRoutes: Routes = [
     MapaComponent,
     HeaderComponent,
     EspecificoComponent,
-    ContactoComponent
+    ContactoComponent,
+    CrearComponent
   ],
   imports: [
     BrowserModule,
