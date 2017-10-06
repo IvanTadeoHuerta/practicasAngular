@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from "angularfire2/database";
+import {Headers} from '@angular/http';
 import { Http } from "@angular/http";
 
 @Injectable()
 export class LugaresService {
+  API_ENDPOINT = 'https://platzisquare-9a618.firebaseio.com'
   lugares: any = [
     { id: 1, plan: 'pagado',  name:"ocoyoacac",cercania: 1, distancia: 1, active: true, nombre: 'Florería la Gardenia' },
     { id: 2, plan: 'gratuito', name:"ocoyoacac1", cercania: 1, distancia: 1.8, active: true, nombre: 'Donas la pasadita' },
@@ -24,7 +26,12 @@ export class LugaresService {
   }
 
   public guardarLugar(lugar) {
-    this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
+    //La siguiente linea muestra como guardar haciendo sockets de fire base
+    //this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
+
+    //A continuacion se utiliza http post
+    const headers = new Headers({"Content-Type":"application/json"});
+    return this.http.post(this.API_ENDPOINT+'/lugares.json', lugar, {headers:headers}).subscribe();
   }
 
   public editarLugar(lugar) {
@@ -32,7 +39,11 @@ export class LugaresService {
   }
 
   public getLugaresEnFireBase(){
+    //La siguiente linea muestra los lugares usando firebase
     return this.afDB.list('lugares/');
+
+    //Acontinuacion se utilizara get
+    //return this.http.get(this.A);
   }
 
   public obtenrGeoData(direccion){

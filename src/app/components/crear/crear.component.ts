@@ -35,7 +35,7 @@ export class CrearComponent {
           
         }else{
           this.lugaresService.editarLugar(this.lugar)
-          alert('SE edito correctamente');
+          alert('SE actualizo correctamente');
         }
 
         this.lugar = {};
