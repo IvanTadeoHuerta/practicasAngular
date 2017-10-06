@@ -40,10 +40,10 @@ export class LugaresService {
 
   public getLugaresEnFireBase(){
     //La siguiente linea muestra los lugares usando firebase
-    return this.afDB.list('lugares/');
+    //return this.afDB.list('lugares/');
 
     //Acontinuacion se utilizara get
-    //return this.http.get(this.A);
+    return this.http.get(this.API_ENDPOINT+'/lugares.json');
   }
 
   public obtenrGeoData(direccion){
